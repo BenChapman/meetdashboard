@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MeetDashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style  type="text/css">
+    body {
+      padding-top: 5rem;
+    }
+    .starter-template {
+      padding: 3rem 1.5rem;
+    }
+    .form-head {
+      text-align: center;
+    }
+    .sw.switch {
+      font-size: 1rem;
+      position: relative;
+    }
+    .switch input {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      background: none;
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      overflow: hidden;
+      padding: 0;
+    }
+    .switch input + label {
+      position: relative;
+      min-width: calc(calc(2.375rem * .8) * 2);
+      border-radius: calc(2.375rem * .8);
+      height: calc(2.375rem * .8);
+      line-height: calc(2.375rem * .8);
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+      vertical-align: middle;
+      text-indent: calc(calc(calc(2.375rem * .8) * 2) + .5rem);
+    }
+    .switch input + label::before,
+    .switch input + label::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(calc(2.375rem * .8) * 2);
+      bottom: 0;
+      display: block;
+    }
+    .switch input + label::before {
+      right: 0;
+      background-color: #dc3545;
+      border-radius: calc(2.375rem * .8);
+      transition: 0.2s all;
+    }
+    .switch input + label::after {
+      top: 2px;
+      left: 2px;
+      width: calc(calc(2.375rem * .8) - calc(2px * 2));
+      height: calc(calc(2.375rem * .8) - calc(2px * 2));
+      border-radius: 50%;
+      background-color: white;
+      transition: 0.2s all;
+    }
+    .switch input:checked + label::before {
+      background-color: #28a745;
+    }
+    .switch input:checked + label::after {
+      margin-left: calc(2.375rem * .8);
+    }
+    .switch input:focus + label::before {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 136, 221, 0.25);
+    }
+    .switch input:disabled + label {
+      color: #868e96;
+      cursor: not-allowed;
+    }
+    .switch input:disabled + label::before {
+      background-color: #e9ecef;
+    }
+    .switch.switch-sm {
+      font-size: 0.875rem;
+    }
+    .switch.switch-sm input + label {
+      min-width: calc(calc(1.9375rem * .8) * 2);
+      height: calc(1.9375rem * .8);
+      line-height: calc(1.9375rem * .8);
+      text-indent: calc(calc(calc(1.9375rem * .8) * 2) + .5rem);
+    }
+    .switch.switch-sm input + label::before {
+      width: calc(calc(1.9375rem * .8) * 2);
+    }
+    .switch.switch-sm input + label::after {
+      width: calc(calc(1.9375rem * .8) - calc(2px * 2));
+      height: calc(calc(1.9375rem * .8) - calc(2px * 2));
+    }
+    .switch.switch-sm input:checked + label::after {
+      margin-left: calc(1.9375rem * .8);
+    }
+    .switch.switch-lg {
+      font-size: 1.25rem;
+    }
+    .switch.switch-lg input + label {
+      min-width: calc(calc(3rem * .8) * 2);
+      height: calc(3rem * .8);
+      line-height: calc(3rem * .8);
+      text-indent: calc(calc(calc(3rem * .8) * 2) + .5rem);
+    }
+    .switch.switch-lg input + label::before {
+      width: calc(calc(3rem * .8) * 2);
+    }
+    .switch.switch-lg input + label::after {
+      width: calc(calc(3rem * .8) - calc(2px * 2));
+      height: calc(calc(3rem * .8) - calc(2px * 2));
+    }
+    .switch.switch-lg input:checked + label::after {
+      margin-left: calc(3rem * .8);
+    }
+    .switch + .switch {
+      margin-left: 1rem;
+    }
+
+    body {
+      padding: 1rem;
+    }
+
+    .dropdown-menu {
+      margin-top: .75rem;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">MeetDashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <div class="form-head">
+          <h1>Presence Settings</h1>
+          <p class="lead">Use this to let people know about your presence.</p>
+        </div>
+        <div>
+          <span class="switch switch-lg">
+            <input type="checkbox" class="switch switch-lg" id="presence">
+            <label for="presence">Select</label>
+          </span>
+        </div>
+        <div class="form-group" id="arGroup">
+          <label for="awayreason">Away Reason</label>
+          <input type="awayreason" class="form-control" id="awayreason" aria-describedby="awayReason" placeholder="Away reason">
+        </div>
+        <div class="form-head" id="timer">
+          <h1><span id="timer-seconds">0</span> seconds</h1>
+          <div><button id="reset" class="btn btn-primary">Reset Timer</button></div>
+        </div>
+      </div>
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var activeTimer
+      var keepaliveTimer
+
+      window.addEventListener("load", function() {
+        $("#timer").hide()
+        $.getJSON(document.location.pathname + "state", function(data) {
+          $("#presence").prop('checked', data.presence);
+          $("label[for='presence']").html(data.presence ? "Present" : "Away")
+          if(data.presence) {
+            $("#presenceMessage").hide()
+            startKeepalive()
+            resetTimer();
+          } else {
+            $("#awayreason").val(data.presenceMessage)
+            $("#awayreason").blur()
+          }
+        })
+
+        $("label[for='presence']").html($('#presence').checked ? "Present" : "Away")
+        $("#presence").click("click", function(e) {
+          $.get(document.location.pathname + 'presence?presence=' + (e.target.checked ? "true" : "false"))
+          $("label[for='presence']").html(e.target.checked ? "Present" : "Away")
+          if(e.target.checked) {
+            startKeepalive()
+            resetTimer();
+          } else {
+            clearTimer();
+          }
+        })
+        $("#awayreason").blur(function(e) {
+          $.get(document.location.pathname + 'awayreason?awayreason=' + encodeURIComponent(e.target.value))
+        })
+        $("#reset").click(function() {
+          clearTimer();
+          resetTimer();
+        })
+
+        notifyMe("Enable notifications");
+      })
+
+      function startKeepalive() {
+        keepaliveTimer = setInterval(function () {
+          $.get(document.location.pathname + 'presence?presence=' + ($("#presence").prop("checked") ? "true" : "false"))
+        }, 5000)
+      }
+      function clearKeepalive() {
+        clearInterval(keepaliveTimer)
+      }
+
+
+      function resetTimer() {
+        $("#timer").show()
+        $("#arGroup").hide()
+        timeRemaining = 300
+        $("#timer-seconds").html(timeRemaining)
+        activeTimer = setInterval(function() {
+          if(timeRemaining <= 60 && timeRemaining % 15 == 0) {
+            notifyMe("Are you still there?")
+          }
+          if(timeRemaining == 0) {
+            $("#presence").click()
+            $("#awayreason").val("Session timed out.")
+            $("#awayreason").blur()
+          }
+          timeRemaining -= 1
+          $("#timer-seconds").html(timeRemaining)
+        }, 1000)
+      }
+      function clearTimer() {
+        clearInterval(activeTimer);
+        $("#timer").hide()
+        $("#arGroup").show()
+      }
+
+      function notifyMe(string) {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+          alert("This browser does not support desktop notification");
+        }
+
+        // Let's check whether notification permissions have already been granted
+        else if (Notification.permission === "granted") {
+          // If it's okay let's create a notification
+          var notification = new Notification(string);
+          notification.addEventListener("click", function(e) {
+            notification.close()
+            clearTimer();
+            resetTimer();
+          })
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then(function (permission) {
+            // If the user accepts, let's create a notification
+            if (permission === "granted") {
+              var notification = new Notification(string);
+              notification.addEventListener("click", function() {
+                clearTimer();
+                resetTimer();
+              })
+            }
+          });
+        }
+
+        // At last, if the user has denied notifications, and you
+        // want to be respectful there is no need to bother them any more.
+      }
+    </script>
+  </body>
+</html>
